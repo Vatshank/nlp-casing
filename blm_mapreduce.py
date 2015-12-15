@@ -14,12 +14,7 @@ count = 0
 
 def counter_bigrams(article):
 	tokens = [word for sent in sent_tokenize(article) for word in word_tokenize(sent)]
-
-	#DEBUG: print tokens
-	##Removing punctations: Check with Carmen
 	tokens_filtered = [token for token in tokens if token.isalpha()]
-	#DEBUG print tokens_filtered
-	#DEBUG print '\n'
 	bigrams = ngrams(tokens_filtered,2)
 	freq_bigrams = Counter(bigrams)
 	return freq_bigrams
@@ -31,16 +26,11 @@ class wiki_bigram_LM(MRJob):
   	global count
   	line= unicode(line, 'utf-8')
   	if line.startswith('NewArticleBegins'):
-		# if doc!='' and doc!='\n':
 		if doc:
 			count+=1
-			# print count
-			# print '************************'
-			# print doc
 			counter = counter_bigrams(doc)
 			for item in counter.iteritems():
 				yield item[0], item[1]
-
 		doc = ''
 	else:
 		doc = doc + line
