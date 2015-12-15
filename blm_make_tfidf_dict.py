@@ -11,8 +11,6 @@ sys.stderr = open('/z/vatshank/log_make_tfidf.txt', 'w')
 
 
 if __name__ == '__main__':
-	# total = 5461927.0
-	total = 243092.0
 	ls = os.listdir('/local/vatshank/wiki_blm/splitting_9/splits/')
 	os.mkdir('/z/vatshank/pickles_9')
 	for file in ls:
