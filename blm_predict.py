@@ -176,4 +176,4 @@ for thresh in np.arange(0,20,1):
 	accuracy = acc_score/float(total) * 100
 	accuracy_lower = acc_lower/float(count_lower) * 100
 	accuracy_upper = acc_upper/float(count_upper) * 100
-	print thresh, accuracy, accuracy_lower, accuracy_upper#, count_lower, count_upper, total, count_upper + count_lower
+	print thresh, accuracy, accuracy_lower, accuracy_upper
